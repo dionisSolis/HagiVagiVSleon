@@ -1,0 +1,142 @@
+using System;
+using System.Reflection.Metadata;
+
+namespace HagiLeon
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            int hpLeon = 100, hpHagi = 100;
+            string userchoice;
+            int chanceOfDamage;
+
+            Console.WriteLine("Добро пожаловать на битву Хаги Ваги и Леона!");
+
+            while (hpLeon > 0 && hpHagi > 0)
+            {
+                Console.WriteLine($"Здоровье Леона: {hpLeon}%       Здоровье Хаги Ваги: {hpHagi}%");
+                Console.WriteLine("\nХод Хаги Ваги!\n Выберите зону удара\n1.Голова(шанс 20%)\n2.Туловище(шанс 20%)\n3.Ноги(шанс 25%)");
+                userchoice = Console.ReadLine();
+
+                switch (userchoice)
+                {
+                    case "1":
+                        chanceOfDamage = random.Next(1, 6);
+
+                        if (chanceOfDamage == 1)
+                        {
+                            Console.WriteLine("Вы попали и нанесли 25% урона!");
+                            hpLeon -= 25;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Промах!");
+                        }
+                        break;
+                    case "2":
+                        chanceOfDamage = random.Next(1, 6);
+
+                        if (chanceOfDamage == 1)
+                        {
+                            Console.WriteLine("Вы попали и нанесли 15% урона!");
+                            hpLeon -= 15;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Промах!");
+                        }
+                        break;
+                    case "3":
+                        chanceOfDamage = random.Next(1, 6);
+
+                        if (chanceOfDamage == 1 || chanceOfDamage == 2)
+                        {
+                            Console.WriteLine("Вы попали и нанесли 10% урона!");
+                            hpLeon -= 10;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Промах!");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("\nХаги Ваги засмотрелся на Кисси Миси и пропустил свой ход... Любовь зла :(");
+                        break;
+                }
+
+                if (hpLeon <= 0)
+                {
+                    break;
+                }
+
+                Console.WriteLine($"Здоровье Леона: {hpLeon}%       Здоровье Хаги Ваги: {hpHagi}%");
+                Console.WriteLine("\nХод Леона!\n Выберите зону удара\n1.Голова(шанс 20%)\n2.Туловище(шанс 20%)\n3.Ноги(шанс 25%)");
+                userchoice = Console.ReadLine();
+
+                switch (userchoice)
+                {
+                    case "1":
+                        chanceOfDamage = random.Next(1, 6);
+
+                        if (chanceOfDamage == 1)
+                        {
+                            Console.WriteLine("Вы попали и нанесли 25% урона!");
+                            hpHagi -= 25;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Промах!");
+                        }
+                        break;
+                    case "2":
+                        chanceOfDamage = random.Next(1, 6);
+
+                        if (chanceOfDamage == 1)
+                        {
+                            Console.WriteLine("Вы попали и нанесли 15% урона!");
+                            hpHagi -= 15;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Промах!");
+                        }
+                        break;
+                    case "3":
+                        chanceOfDamage = random.Next(1, 6);
+
+                        if (chanceOfDamage == 1 || chanceOfDamage == 2)
+                        {
+                            Console.WriteLine("Вы попали и нанесли 10% урона!");
+                            hpHagi -= 10;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Промах!");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("\nАх, Леончик... К сожалению Шелли принадлежит Кольту, а твой ход переход к Хаги Ваги:(");
+                        break;
+                }
+
+                Console.WriteLine("Для продолжения нажмите Enter");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+            Console.WriteLine($"Бой окончен! Здоровье Леона: {hpLeon}       Здоровье Хаги: {hpHagi}");
+
+            if (hpHagi <= 0)
+            {
+                Console.WriteLine("Победа за Леоном!");
+            }
+            else
+            {
+                Console.WriteLine("Победа за Хаги Ваги");
+            }
+            Console.Read();
+        }
+    }
+}
