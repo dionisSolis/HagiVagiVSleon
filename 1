@@ -8,16 +8,16 @@ namespace HagiLeon
         static void Main(string[] args)
         {
             Random random = new Random();
-            int hpLeon = 100, hpHagi = 100;
+            int heatPointdpLeon = 100, heatPointHagi = 100;
             string userchoice;
             int chanceOfDamage;
 
             Console.WriteLine("Добро пожаловать на битву Хаги Ваги и Леона!");
 
-            while (hpLeon > 0 && hpHagi > 0)
+            while (heatPointdpLeon > 0 && heatPointHagi > 0)
             {
-                Console.WriteLine($"Здоровье Леона: {hpLeon}%       Здоровье Хаги Ваги: {hpHagi}%");
-                Console.WriteLine("\nХод Хаги Ваги!\nВыберите зону удара\n1.Голова(шанс 20%)\n2.Туловище(шанс 20%)\n3.Ноги(шанс 25%)");
+                Console.WriteLine($"Здоровье Леона: {heatPointdpLeon}%       Здоровье Хаги Ваги: {heatPointHagi}%");
+                Console.WriteLine("\nХод Хаги Ваги!\nВыберите зону удара\n1.Голова(шанс 20%)\n2.Туловище(шанс 30%)\n3.Ноги(шанс 40%)");
                 userchoice = Console.ReadLine();
 
                 switch (userchoice)
@@ -25,10 +25,10 @@ namespace HagiLeon
                     case "1":
                         chanceOfDamage = random.Next(1, 6);
 
-                        if (chanceOfDamage == 1)
+                        if (chanceOfDamage <= 2)
                         {
                             Console.WriteLine("Вы попали и нанесли 25% урона!");
-                            hpLeon -= 25;
+                            heatPointdpLeon -= 25;
                         }
                         else
                         {
@@ -38,10 +38,10 @@ namespace HagiLeon
                     case "2":
                         chanceOfDamage = random.Next(1, 6);
 
-                        if (chanceOfDamage == 1)
+                        if (chanceOfDamage <= 3)
                         {
                             Console.WriteLine("Вы попали и нанесли 15% урона!");
-                            hpLeon -= 15;
+                            heatPointdpLeon -= 15;
                         }
                         else
                         {
@@ -51,10 +51,10 @@ namespace HagiLeon
                     case "3":
                         chanceOfDamage = random.Next(1, 6);
 
-                        if (chanceOfDamage <= 2)
+                        if (chanceOfDamage <= 4)
                         {
                             Console.WriteLine("Вы попали и нанесли 10% урона!");
-                            hpLeon -= 10;
+                            heatPointdpLeon -= 10;
                         }
                         else
                         {
@@ -66,13 +66,13 @@ namespace HagiLeon
                         break;
                 }
 
-                if (hpLeon <= 0)
+                if (heatPointdpLeon <= 0)
                 {
                     break;
                 }
 
-                Console.WriteLine($"Здоровье Леона: {hpLeon}%       Здоровье Хаги Ваги: {hpHagi}%");
-                Console.WriteLine("\nХод Леона!\nВыберите зону удара\n1.Голова(шанс 20%)\n2.Туловище(шанс 20%)\n3.Ноги(шанс 25%)");
+                Console.WriteLine($"Здоровье Леона: {heatPointdpLeon}%       Здоровье Хаги Ваги: {heatPointHagi}%");
+                Console.WriteLine("\nХод Леона!\nВыберите зону удара\n1.Голова(шанс 20%)\n2.Туловище(шанс 30%)\n3.Ноги(шанс 40%)");
                 userchoice = Console.ReadLine();
 
                 switch (userchoice)
@@ -80,10 +80,10 @@ namespace HagiLeon
                     case "1":
                         chanceOfDamage = random.Next(1, 6);
 
-                        if (chanceOfDamage == 1)
+                        if (chanceOfDamage <= 2)
                         {
                             Console.WriteLine("Вы попали и нанесли 25% урона!");
-                            hpHagi -= 25;
+                            heatPointHagi -= 25;
                         }
                         else
                         {
@@ -93,10 +93,10 @@ namespace HagiLeon
                     case "2":
                         chanceOfDamage = random.Next(1, 6);
 
-                        if (chanceOfDamage == 1)
+                        if (chanceOfDamage <= 3)
                         {
                             Console.WriteLine("Вы попали и нанесли 15% урона!");
-                            hpHagi -= 15;
+                            heatPointHagi -= 15;
                         }
                         else
                         {
@@ -106,10 +106,10 @@ namespace HagiLeon
                     case "3":
                         chanceOfDamage = random.Next(1, 6);
 
-                        if (chanceOfDamage <= 2)
+                        if (chanceOfDamage <= 4)
                         {
                             Console.WriteLine("Вы попали и нанесли 10% урона!");
-                            hpHagi -= 10;
+                            heatPointHagi -= 10;
                         }
                         else
                         {
@@ -117,7 +117,7 @@ namespace HagiLeon
                         }
                         break;
                     default:
-                        Console.WriteLine("\nАх, Леончик... К сожалению Шелли принадлежит Кольту, а твой ход переход к Хаги Ваги:(");
+                        Console.WriteLine("\nАх, Леончик... К сожалению Шелли принадлежит Кольту, а твой ход переход Хаги Ваги:(");
                         break;
                 }
 
@@ -126,9 +126,9 @@ namespace HagiLeon
                 Console.Clear();
             }
 
-            Console.WriteLine($"Бой окончен! Здоровье Леона: {hpLeon}       Здоровье Хаги: {hpHagi}");
+            Console.WriteLine($"Бой окончен! Здоровье Леона: {heatPointdpLeon}       Здоровье Хаги: {heatPointHagi}");
 
-            if (hpHagi <= 0)
+            if (heatPointHagi <= 0)
             {
                 Console.WriteLine("Победа за Леоном!");
             }
